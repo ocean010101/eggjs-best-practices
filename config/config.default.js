@@ -33,6 +33,16 @@ module.exports = appInfo => {
     enable: true,
   };
 
+  config.mongoose = {
+    client: {
+      url: 'mongodb://127.0.0.1:27017/egg_server',
+      options: {
+        autoReconnect: true, // 自动连接
+        reconnectTries: Number.MAX_VALUE,
+        bufferMaxEntries: 0,
+      },
+    },
+  };
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
