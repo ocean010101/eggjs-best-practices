@@ -17,6 +17,21 @@ module.exports = appInfo => {
 
   // add your middleware config here
   config.middleware = [];
+  config.swaggerdoc = {
+    dirScanner: './app/controller',
+    apiInfo: {
+      title: 'eggjs-best-practices 项目接口',
+      description: 'swagger-ui for egg',
+      version: '1.0.0',
+    },
+    schemes: ['http', 'https'],// 发出文档使用的协议
+    consumes: ['application/json'],
+    produces: ['application/json'],
+    enableSecurity: false,
+    // enableValidate: true,
+    routerMap: true,//自动生成API路由
+    enable: true,
+  };
 
   // add your user config here
   const userConfig = {
