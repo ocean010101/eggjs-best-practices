@@ -10,4 +10,8 @@ module.exports = {
     enable: true,
     package: 'egg-swagger-doc-feat',
   },
+  validate: {
+    enable: true,
+    package: 'egg-validate',
+  },
 };

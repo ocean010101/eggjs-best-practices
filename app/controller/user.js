@@ -15,6 +15,11 @@ class UserController extends Controller {
      */
     async create() {
         const { ctx } = this;
+        // 校验 `ctx.request.body` 是否符合我们预期的格式
+        // 如果参数校验未通过，将会抛出一个 status = 422 的异常
+        // ctx.validate(createRule, ctx.request.body);
+        // ctx.validate(ctx.rule.createUserRequest, ctx.request.body);
+        ctx.validate(ctx.rule.createUserRequest);
         // 设置响应内容和响应状态码
         // testerr()
         // ctx.body = 'user ctrl'
