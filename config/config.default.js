@@ -43,6 +43,11 @@ module.exports = appInfo => {
       },
     },
   };
+  config.jwt = {
+    secret: 'Great4-M',
+    enable: true, // default is false
+    match: /^\/api/, // optional 有/api前缀检查权限
+  };
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
