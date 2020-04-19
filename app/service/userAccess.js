@@ -6,7 +6,6 @@ class UserAccessService extends Service {
         const { ctx, service } = this
         //把用户从数据库中取出
         const user = await service.user.findByMobile(payload.mobile)
-        console.log('login user=', payload, user);
 
         if (!user) { // 数据库中没有这个用户
             ctx.throw(404, 'user not found')
@@ -28,13 +27,9 @@ class UserAccessService extends Service {
     async current() {
         const { ctx, service } = this
         // ctx.state.user 可以提取到JWT编码的data
-        console.log(ctx.state.user.data);
-
         const _id = ctx.state.user.data._id
-        console.log(_id);
 
         const user = await service.user.find(_id) // 根据_id查找到用户
-        console.log(user);
         if (!user) {
             ctx.throw(404, 'user is not found')
         }
